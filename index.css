@@ -1,0 +1,268 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #B7C7E2;
+    color: #193456;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* CABEÇALHO */
+
+header {
+    padding: 28px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #19345620;
+}
+
+header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+header a {
+    text-decoration: none;
+    color: #B7C7E2;
+    background: #193456;
+    padding: 14px 24px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+header a:hover {
+    background: #304D73;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #19345630;
+}
+
+/* ÁREA PRINCIPAL */
+
+main {
+    width: 85%;
+    max-width: 1200px;
+    margin: 65px auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+}
+
+#listaMusicas {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+}
+
+#listaMusicas::before {
+    content: "MY PERSONAL SOUNDTRACK";
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}
+
+#listaMusicas::after {
+    content: "Uma coleção de músicas, histórias e sentimentos.";
+    display: block;
+    font-size: 13px;
+    color: #405779;
+    margin-top: -15px;
+}
+
+/* CARD MUSICAL */
+
+.musica {
+    background: #193456;
+    color: white;
+    padding: 35px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 18px 35px #19345630;
+    transition: 0.3s;
+}
+
+.musica:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px #19345645;
+}
+
+.musica::after {
+    content: "♫";
+    position: absolute;
+    right: -25px;
+    top: -45px;
+    font-size: 190px;
+    color: #B7C7E2;
+    opacity: 0.07;
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+.musica h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.artista {
+    font-size: 15px;
+    color: #B7C7E2;
+    position: relative;
+    z-index: 1;
+}
+
+.detalhes {
+    font-size: 12px;
+    color: #A6B8D1;
+    margin-top: 17px;
+    position: relative;
+    z-index: 1;
+}
+
+/* AÇÕES */
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.editar,
+.apagar {
+    padding: 11px 23px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.editar {
+    background: #B7C7E2;
+    color: #193456;
+    border: none;
+}
+
+.editar:hover {
+    background: #E8EDF6;
+    transform: translateY(-3px);
+}
+
+.apagar {
+    background: #304D73;
+    color: white;
+    border: 1px solid #536B8D;
+}
+
+.apagar:hover {
+    background: #536B8D;
+    transform: translateY(-3px);
+}
+
+/* DECORAÇÃO DO DISCO */
+
+main::after {
+    content: "♫";
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, #B7C7E2 0 12%, transparent 12.5%),
+        repeating-radial-gradient(
+            circle,
+            #101e32 0px,
+            #101e32 2px,
+            #263e5e 3px,
+            #263e5e 5px
+        );
+
+    border: 12px solid #304D73;
+    box-shadow: 0 20px 40px #19345645;
+
+    display: grid;
+    place-items: center;
+
+    color: #193456;
+    font-size: 55px;
+
+    animation: girar 15s linear infinite;
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    main::after {
+        width: 230px;
+        height: 230px;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 550px) {
+    header {
+        padding: 22px 5%;
+        gap: 12px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header a {
+        padding: 12px 14px;
+        font-size: 10px;
+    }
+
+    main {
+        width: 90%;
+        margin: 45px auto;
+    }
+
+    .musica {
+        padding: 25px;
+    }
+
+    .musica h2 {
+        font-size: 26px;
+    }
+
+    main::after {
+        width: 190px;
+        height: 190px;
+    }
+}
